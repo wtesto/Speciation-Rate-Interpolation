@@ -6,25 +6,21 @@ Weston Testo
 This walkthrough details an approach to visualize spatial distribution
 of speciation rates via interpolation. Later on, I’ll be using two
 datasets on the Neotropical lycophyte genus *Phlegmariurus*: speciation
-rate estimates from [Testo *et al*.
-(2019)](http://www.westontesto.com/uploads/1/1/8/6/118677050/new_phytologist_testo_et_al.pdf)
-and \~3500 specimen occurrence records of 90+ species from GBIF. You can
+rate estimates from <a href="http://www.westontesto.com/uploads/1/1/8/6/118677050/new_phytologist_testo_et_al.pdf" target="_blank">Testo *et al*.
+(2019)</a> and \~3500 specimen occurrence records of 90+ species from GBIF. You can
 access these data and script in this repository. Though we’ll be
 focusing on speciation rates, this approach can be applied to any number
 of species traits. <br/>
 
 Before we get started with the data, here’s some context for this work.
 I was inspired to work on this after reading this really nice
-[paper](https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.14629)
-on orchids by Oscar Pérez Escobar and colleagues in *New Phytologist* in
+<a href="https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.14629" target="_blank">paper<a/> on orchids by Oscar Pérez Escobar and colleagues in *New Phytologist* in
 2017. In that paper, they generated speciation rates from a
 time-calibrated phylogeny, associated those rates with specimen-based
 occurrence records, and used inverse-distance weighted (IDW) spatial
 interpolation in ArcMap to “fill in the gaps” between occurrence points.
-For a nice explanation of how spatial interpolation works, see [this
-nice post](https://mgimond.github.io/Spatial/spatial-interpolation.html)
-by Manny Gimond.  
-<br/>
+For a nice explanation of how spatial interpolation works, see <a href="https://mgimond.github.io/Spatial/spatial-interpolation.html">this nice post<a/>
+by Manny Gimond.  <br/>
 
 Here, I am re-envisioned Pérez Escobar *et al.*’s approach with
 implementation in R. This code mostly relies on the **sf** package for
