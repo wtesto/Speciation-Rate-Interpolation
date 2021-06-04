@@ -67,7 +67,7 @@ Andes of South America. **Note**:These data are straight from GBIF and
 uncleaned, so there are a few errors, like that point in the Chocó of
 western Colombia.
 
-![](Interpolation_Markdown_files/figure-gfm/Load%20libraries%20&%20Espeletia%20test-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Load%20libraries%20&%20Espeletia%20test-1.png" width="1000"><!-- -->
 <br/>
 
 As you can see, the distribution of *Espeletia* is restricted to high
@@ -79,7 +79,7 @@ Next, we can see the same map but with the points colored by speciation
 rate. To keep things simple, I have simply simulated speciation rates
 with a normal distribution centered on 0.3 events<sup>-MY</sup>.
 
-![](Interpolation_Markdown_files/figure-gfm/Espeletia%20speciation-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Espeletia%20speciation-1.png" width="1000"><!-- -->
 <br/>
 
 This is interesting, but interpolation of speciation rate estimates
@@ -88,7 +88,7 @@ potentially make for a more interesting and informative visualization.
 However, if we carry out interpolation across the current map extent, we
 get this:
 
-![](Interpolation_Markdown_files/figure-gfm/Plot%20Espeletia%20interpolation-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Plot%20Espeletia%20interpolation-1.png" width="1000"><!-- -->
 <br/>
 
 This looks *terrible*, and for good reason – we are interpolating
@@ -104,7 +104,7 @@ This is where a clipping mask comes in handy. If we apply a circular
 buffer of 50 km diameter around each occurrence point and use that to
 clip the extent of the interpolation, we get a result that makes sense:
 
-![](Interpolation_Markdown_files/figure-gfm/Plot%20buffered%20Espeletia%20interpolation-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Plot%20buffered%20Espeletia%20interpolation-1.png" width="1000"><!-- -->
 <br/>
 
 Now that we’ve settled the general approach, let’s try this with real
@@ -183,14 +183,14 @@ limit <- st_buffer(points, dist = 500000) %>% st_bbox()
 
 <br/> A quick check to make sure our reprojection looks OK –
 
-![](Interpolation_Markdown_files/figure-gfm/Quick%20occurrence%20map-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Quick%20occurrence%20map-1.png" width="1000"><!-- -->
 <br/>
 
 This looks right…*Phlegmariurus* is well-represented in the Andes,
 southeastern Brazil, and Mesoamerica. Let’s take a quick look at the
 distribution of speciation rates by simply coloring occurrence points by
 tip rates.
-![](Interpolation_Markdown_files/figure-gfm/Quick%20speciation%20rate%20map-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Quick%20speciation%20rate%20map-1.png" width="1000"><!-- -->
 <br/>
 
 As we can see, the most rapidly diversifying lineages are principally
@@ -220,7 +220,7 @@ buffer<-st_buffer(points$geometry, dist = 50000, nQuadSegs = 50) %>%
   st_union()
 ```
 
-![](Interpolation_Markdown_files/figure-gfm/Buffer%20map-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Buffer%20map-1.png" width="1000"><!-- -->
 <br/>
 
 This looks pretty good overall. Most of the range has been fused into a
@@ -245,7 +245,7 @@ bufferLarge <- bufferLarge %>% st_cast("MULTIPOLYGON")
 
 The result is rather similar to the above plot, but perhaps a bit
 “cleaner”.
-![](Interpolation_Markdown_files/figure-gfm/Plot%20trimmed%20buffer-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Plot%20trimmed%20buffer-1.png" width="1000"><!-- -->
 <br/>
 
 For the purposes of this walkthrough, we’ll use the untrimmed buffer
@@ -381,7 +381,7 @@ sample_n(IDW_df,15)
 
 Finally, we can visualize the output:
 
-![](Interpolation_Markdown_files/figure-gfm/Plot%20IDW%20output-1.png)<!-- -->
+<img src="Interpolation_Markdown_files/figure-gfm/Plot%20IDW%20output-1.png" width="1000"><!-- -->
 <br/>
 
 Things look as we expected – high rates in the tropical Andes, much like
