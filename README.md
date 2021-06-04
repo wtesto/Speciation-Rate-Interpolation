@@ -139,17 +139,17 @@ equal-area projection) and read in a world map using the
 **rnaturalearth** package.
 
 ``` r
-behrmann<-"+proj=cea +lon_0=0 +lat_ts=30 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"
+behrmann <- "+proj=cea +lon_0=0 +lat_ts=30 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0"
 
-world_temp<-ne_countries(returnclass = "sf")
-world<-st_transform(world_temp, crs = behrmann)
+world_temp <- ne_countries(returnclass = "sf")
+world <- st_transform(world_temp, crs = behrmann)
 ```
 
 <br/> Now we’ll load the CSV with our occurrence and speciation rate
 data. The lat/long data are in decimal degrees (WGS84).
 
 ``` r
-points_temp<-read.csv("Phlegmariurus_occ.csv")
+points_temp <- read.csv("Phlegmariurus_occ.csv")
 
 head(points_temp)
 ```
@@ -170,9 +170,9 @@ are designating coordinates as – this corresponds to the column numbers
 of out our longitude and latitude data, respectively (see above).
 
 ``` r
-points_temp<-st_as_sf(points_temp, coords = c(4,3), crs= '+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0')
+points_temp <- st_as_sf(points_temp, coords = c(4,3), crs= '+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0')
 
-points<-st_transform(points_temp, crs = behrmann)
+points <- st_transform(points_temp, crs = behrmann)
 
 limit <- st_buffer(points, dist = 500000) %>% st_bbox()
 ```
@@ -208,7 +208,7 @@ you are working with. Note: the 1m buffer is to avoid potential problems
 with the geometry of the polygon.
 
 ``` r
-buffer<-st_buffer(points$geometry, dist = 50000, nQuadSegs = 50) %>% 
+buffer <- st_buffer(points$geometry, dist = 50000, nQuadSegs = 50) %>% 
   st_union()%>%
   smooth(method="ksmooth", smoothness=40) %>% 
   st_intersection(world) %>%
@@ -230,7 +230,7 @@ size of the isolated polygons using some basic geometry:
 ``` r
 A = 3.14*(50000^2) ## approx. area of single-point buffers with 50km radius
 
-bufferManyParts<-buffer %>% st_cast("POLYGON") ## make multiple polygons
+bufferManyParts <- buffer %>% st_cast("POLYGON") ## make multiple polygons
 
 bufferLarge <- bufferManyParts[as.numeric(st_area(bufferManyParts)) > A] 
 
@@ -335,7 +335,7 @@ We can use the buffer to clip the extent of the interpolation and
 convert the resulting raster to a tibble so we can visualize it.
 
 ``` r
-IDW_output_trimmed<-mask(IDW_output, buffer_sp)
+IDW_output_trimmed <- mask(IDW_output, buffer_sp)
 
 IDW_df <- rasterToPoints(IDW_output_trimmed) %>% as_tibble()
 colnames(IDW_df) <- c("X", "Y", "Z")
