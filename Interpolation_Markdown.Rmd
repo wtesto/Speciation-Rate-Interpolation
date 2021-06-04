@@ -2,9 +2,7 @@
 title: "Visualizing speciation rates with IDW interpolation"
 author: "Weston Testo"
 date: "03 May 2021"
-output:
-  html_document: default
-  pdf_document: default
+output: rmarkdown::github_document
 ---
   
   This walkthrough details an approach to visualize spatial distribution of speciation rates via interpolation. Later on, I'll be using two datasets on the Neotropical lycophyte genus *Phlegmariurus*: speciation rate estimates from [Testo *et al*. (2019)](http://www.westontesto.com/uploads/1/1/8/6/118677050/new_phytologist_testo_et_al.pdf) and ~3500 specimen occurrence records of 90+ species from GBIF. You can access these data and script in this repository. Though we'll be focusing on speciation rates, this approach can be applied to any number of species traits.
