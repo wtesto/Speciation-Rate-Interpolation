@@ -6,7 +6,7 @@ Weston Testo
 This walkthrough details an approach to visualize spatial distribution
 of speciation rates via interpolation. Later on, I’ll be using two
 datasets on the Neotropical lycophyte genus *Phlegmariurus*: speciation
-rate estimates from <a href="http://www.westontesto.com/uploads/1/1/8/6/118677050/new_phytologist_testo_et_al.pdf" target="_blank">Testo *et al*.
+rate estimates from <a href="https://static1.squarespace.com/static/60f01ce3590ad927352e44af/t/60f55aba783e880aac979e4f/1626692285740/Testo2019_NewPhyt.pdf" target="_blank">Testo *et al*.
 (2019)</a> and \~3500 specimen occurrence records of 90+ species from GBIF. You can
 access these data and script in this repository. Though we’ll be
 focusing on speciation rates, this approach can be applied to any number
